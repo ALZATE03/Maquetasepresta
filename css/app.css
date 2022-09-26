@@ -1,0 +1,195 @@
+@font-face {
+    font-family: "Typefont1";
+    src: url("../assets/font/arial-rounded-mt-bold.ttf");
+}
+@font-face {
+    font-family: "Typefont2";
+    src: url("../assets/font/myriad-pro-8.otf");
+}
+.type1{
+    font-family: 'Typefont1';
+}
+.type2{
+    font-family: 'Typefont2';
+}
+
+.blue{
+    color:#040560;
+}
+
+     .bg-calculator{
+        
+    background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+   } 
+
+   .border-calculator{
+    border: 0px none #1C6EA4;
+    border-radius: 40px;
+    line-height: 15px;
+   }
+   .tittle-calculator{
+       margin: -6px;
+   }
+   .subtittle-calculator{
+    margin: 0px 30px 0px 30px;
+
+   }
+   .space-tittle{
+       margin: 15px;
+   }
+   .center{
+       text-align: center;
+   }
+   .space-total{
+       margin: 0px
+   }
+   .concept-text{
+
+    font-size: 65%
+   }
+
+   .color-botton-home{
+       background-color: #d9ed02;
+       color: #040560
+
+   }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(175deg, rgba(232,232,241,0.5) 0%, rgba(127,128,171,0.3) 100%);
+}
+
+.buttonlogin {
+    padding: 1%;
+    background: #5cb85c;
+    border-radius: 8%;
+    color: #fff !important;
+}
+.buttonlogout {
+    padding: 1%;
+    background: #d9534f;
+    border-radius: 8%;
+    color: #fff !important;
+}
+
+.bg-sepresta {
+    background: url("../assets/img/fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+h3 {
+    color: #fff !important;
+}
+
+.font-white {
+    -webkit-text-stroke: 1px fff;
+    color: #fff
+}
+
+.nav-font {
+    color: #0565C0
+}
+
+.pre-probado {
+    color: #040560
+}
+
+.soyMujer {
+    color: #CCB7F0
+}
+
+.bgSoyMujer {
+    background: #430379;
+    height: 40px;
+    align-items: center;
+    display: grid;
+    font-size: 17px;
+}
+
+.switchSoyMujer:checked {
+    
+    /* #C384F8 */
+    background-color: #c20dcc !important;
+    border-color: #c20dcc !important;
+}
+
+.promo {
+    font-size: 16px;
+    color: #430379
+}
+
+.bannerSoyMujer {
+    font-size: 12px
+}
+
+.bg-footer {
+    background: #0C2B61 !important;
+    color: #fff;
+    --bs-list-group-bg: #0C2B61;
+}
+
+.bg-footer>a:link {
+    color: #fff;
+    font-size: 10px !important;
+}
+
+
+    
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+    .position-calculator{
+        display: flex;
+        justify-content:center ;
+    }
+}
+ 
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {.position-calculator{
+        display: flex;
+        justify-content:center ;
+    }}
+ 
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+    .position-calculator{
+        display: flex;
+        justify-content:center ;
+    }}
+ 
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+    .position-calculator{
+        display: flex;
+        justify-content:end ;
+    }
+}
+ 
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+    .position-calculator{
+        display: flex;
+        justify-content:end ;
+    }
+}
+@media (max-width: 1000px) and (min-width: 100px) {
+    .bg-sepresta {
+        background: linear-gradient(175deg, rgba(232,232,241,0.5) 0%, rgba(127,128,171,0.3) 100%);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+}
+.bg-gray{
+    background-color:#7f80ab; 
+}
+
+
+

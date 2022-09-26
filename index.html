@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sepresta</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+
+    </style>
+<link href ="./css/app.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+</head>
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://v2.sepresta.co/img/seprestalogo.png" width="170" height="" class="d-inline-block align-top"
+                alt="">
+        </a>
+        
+        <div class="d-flex d-end">
+            
+        <div class="collapse navbar-collapse " id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mt-1">
+                    <a class="navbar-brand nav-font pr-2" href="/">Inicio</a>
+                </li>
+                
+                <li class="nav-item mt-1">
+    <a class="navbar-brand nav-font pr-2" href="#">Preguntas Frecuentes</a>
+</li>
+<li class="nav-item mt-1">
+    <a class="navbar-brand nav-font pr-4" href="#">Requisitos crédito</a>
+</li>
+<li class="nav-item mt-1">
+    <a class="navbar-brand nav-font pl-4" href="#">Contacto</a>
+</li>
+<li class="nav-item mt-1">
+    <a class="navbar-brand buttonlogin p-2" href="/login">Iniciar sesión</a>
+</li>
+                
+            </ul>
+        </div>
+        
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<body>
+    
+    <div class="bg-sepresta position-calculator ">
+        <div class="card col-12 col-md-8 col-lg-4 rounded p-4 m-md-4 bg-calculator">  
+    <div class="card container bg2-calculator border-calculator">
+        <div class="row">
+            <div class="col-12">
+                <div class="container space-tittle">
+                    <h1 class="type1 blue tittle-calculator">Desliza</h1>
+                    <label for="customRange2" class="form-label type2 blue">Dinos Cuanto Deseas</label>
+                </div>
+                <h1  class="col-12 d-flex justify-content-center mt-2">
+                <span id="credit_value" class="type1 blue">$ 100.000</span>
+                </h1>
+                <div class="card container p-3 bg2-calculator border-calculator">
+                  <input id="action_credit_value"  type="range"
+                  value="100000" class="form-range" min="100000" max="500000" id="creditRange" step="10000"
+                  
+                  onchange="change_credit()"
+                  >
+                </div>
+            </div>
+        </div>
+        <label class="type2 blue subtittle-calculator">A cuantos dias? </label>
+        <div class="row mt-4 center">        
+            <h1 class="type1 blue"><b class="type1" id="credit_days">5</b>&nbsp; Días</h1>
+        </div>
+        <div class="card container p-3 bg2-calculator border-calculator mb-4">
+            <input id="action_credit_days" type="range"  min="5"
+                value="5" max="30" 
+                onchange="change_credit()"
+                >
+        </div>
+
+    </div>
+
+    <div>
+
+    </div>
+    <div class="bgSoyMujer container card mt-4 mb-4">
+        <div class="d-flex justify-content-center">
+            <div class="form-check form-switch" >
+                <input class="form-check-input switchSoyMujer" type="checkbox" role="switch"
+                id="flexSwitchCheckChecked" 
+                onchange="change_credit()"
+                >
+                <span class="font-white bannerSoyMujer soyMujer type1 "><b class=""> 10% </b> de Descuento</span>
+                <span class="form-check-label soyMujer " for="flexSwitchCheckChecked">#SoyMujer</span>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div class="card container bg2-calculator border-calculator mt-2 mb-2 ">
+        <h1 class="d-flex justify-content-center space-total" ><span id="total_credit" class="type1 blue">$ 161.151</span> </h1>
+        
+    </div>
+    <label class="type2 d-flex justify-content-center blue" >Total a pagar</label>
+
+  <div class="card container bg2-calculator rounded concept-text">
+    <table class="table  table-borderless">
+        <thead>
+            <tr>
+                <th scope="col type1" class="type1 blue">CONCEPTO</th>
+                <th scope="col type1" class="type1 blue">VALOR</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <th scope="row" class="type1 blue">Préstamo</th>
+                <td class="d-flex justify-content-end type2 blue"><span id="prestamo" class="text-right">$ 100.000</span> </td>
+            </tr>
+            <tr>
+                <th scope="row" class="type1 blue">Interés (25.02%EA, 1.87%NM)</th>
+                <td class="d-flex justify-content-end type2 blue"><span id="interes" class="text-right">$ 311 </span> </td>
+            </tr>
+            <tr>
+                <th scope="row" class="type1 blue">Seguro de vida</th>
+                <td class="d-flex justify-content-end type2 blue"><span id="seguro" class="text-right">$ 240</span> </td>
+            </tr>
+            <tr>
+                <th scope="row" class="type1 blue">Gestión de servicios tecnológicos</th>
+                <td class="d-flex justify-content-end type2 blue">
+                  <span id="gestion_tecnologica" class="text-right">
+                    $ 60.600
+                  </span>
+                  </td>
+            </tr>
+            <tr>
+                <th scope="row" class="type1 blue">Descuento Mujer</th>
+                <td class="d-flex justify-content-end type2 blue">
+                  <span id="descuento_mujer" class="text-right">
+                    $ 0
+                  </span>
+                  </td>
+            </tr>
+
+        </tbody>
+    </table>
+  </div>
+   
+
+    <button class="container btn  mb-2 type1 color-botton-home" onclick="save_credit(get_credit_value(),get_days_credit_value())"><h5> Solicita tu prestamo</h5></button>
+</div>
+
+
+<style>
+@font-face {
+    font-family: "Typefont1";
+    src: url("./assets/font/arial-rounded-mt-bold.ttf");
+}
+@font-face {
+    font-family: "Typefont2";
+    src: url("./assets/font/myriad-pro-8.otf");
+}
+.type1{
+    font-family: 'Typefont1';
+}
+.type2{
+    font-family: 'Typefont2';
+}
+
+.blue{
+    color:#040560;
+}
+
+     .bg-calculator{
+        
+    background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+   } 
+
+   .border-calculator{
+    border: 0px none #1C6EA4;
+    border-radius: 40px;
+    line-height: 15px;
+   }
+   .tittle-calculator{
+       margin: -6px;
+   }
+   .subtittle-calculator{
+    margin: 0px 30px 0px 30px;
+
+   }
+   .space-tittle{
+       margin: 15px;
+   }
+   .center{
+       text-align: center;
+   }
+   .space-total{
+       margin: 0px
+   }
+   .concept-text{
+
+    font-size: 65%
+   }
+
+   .color-botton-home{
+       background-color: #d9ed02;
+       color: #040560
+
+   }
+</style>
+
+<script>
+    function init_values(){
+        let days = 5
+        let credit = 100000
+        
+        if(
+            localStorage.getItem('prestamo') &&
+            localStorage.getItem('dias')
+        ){
+            credit =parseInt(localStorage.getItem('prestamo'))
+            days = parseInt(localStorage.getItem('dias'))
+        }
+        let interes = parseInt(credit * (0.01878 / 30) * days)
+        let seguro = parseInt((credit*24)/10000)
+        let gestion = 60600
+        let descuento = 0
+        let descuento_mujer = 0 
+        console.log(interes)
+        let total_prestamo = parseInt(credit + interes + seguro + gestion -descuento)
+
+
+        let valor_solicitado = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(credit.toFixed(0));
+        let costo_total_prestamo = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(total_prestamo.toFixed(0));
+        let valor_interes = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(interes.toFixed(0));
+        let valor_seguro = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(seguro.toFixed(0));
+        let valor_gestion = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(gestion.toFixed(0));
+        let costo_descuento_mujer = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(descuento_mujer.toFixed(0));
+        
+
+
+
+        document.getElementById('credit_value').innerHTML = valor_solicitado
+        document.getElementById('credit_days').innerHTML = days
+        document.getElementById('action_credit_value').value = valor_solicitado
+        document.getElementById('action_credit_days').value = days
+        document.getElementById('interes').innerHTML = valor_interes
+        document.getElementById('seguro').innerHTML = valor_seguro
+        document.getElementById('gestion_tecnologica').innerHTML = valor_gestion
+        document.getElementById('total_credit').innerHTML = costo_total_prestamo
+        document.getElementById('descuento_mujer').innerHTML = costo_descuento_mujer
+
+    }
+    init_values()
+    function save_credit(prestamo,dias){
+        localStorage.setItem('prestamo',prestamo);
+        localStorage.setItem('dias',dias);
+        location.href ="/dashboard";
+    }
+    function change_credit() {
+        prestamo = parseInt(get_credit_value())
+        days = parseInt(get_days_credit_value())
+        
+        interes = parseInt(prestamo * (0.01878 / 30) * get_days_credit_value())
+        seguro = parseInt((prestamo*24)/10000)
+        gestion = 60600
+        descuento = 0
+        descuento_mujer = 0    
+
+        if(flexSwitchCheckChecked.checked){
+            descuento_mujer = 6060
+        }else{
+            descuento_mujer = 0
+        }
+        
+        if(get_descuento_mujer()){
+            descuento=6060
+        }
+        console.log(get_descuento_mujer())
+        total_prestamo = parseInt(prestamo + interes + seguro + gestion -descuento)
+        console.log(total_prestamo)
+        
+
+        let valor_solicitado = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(prestamo.toFixed(0));
+        let costo_total_prestamo = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(total_prestamo.toFixed(0));
+        let valor_interes = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(interes.toFixed(0));
+        let valor_seguro = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(seguro.toFixed(0));
+        let valor_gestion = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(gestion.toFixed(0));
+        let costo_descuento_mujer = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(descuento_mujer.toFixed(0));
+        
+        document.getElementById('credit_value').innerHTML = valor_solicitado
+        document.getElementById('prestamo').innerHTML = valor_solicitado
+        document.getElementById('credit_days').innerHTML = get_days_credit_value()
+        document.getElementById('interes').innerHTML = valor_interes
+        document.getElementById('seguro').innerHTML = valor_seguro
+        document.getElementById('gestion_tecnologica').innerHTML = valor_gestion
+        document.getElementById('total_credit').innerHTML = costo_total_prestamo
+        document.getElementById('descuento_mujer').innerHTML = costo_descuento_mujer
+
+        // 
+       
+
+
+    }
+    // change_credit(1)
+
+
+    function get_credit_value() {
+            return document.getElementById('action_credit_value').value
+    }
+
+    function get_days_credit_value() {
+            return document.getElementById('action_credit_days').value
+    }
+
+    function get_descuento_mujer(){
+    return document.getElementById('flexSwitchCheckChecked').checked
+    }
+</script>
+
+    </div>
+
+    <style>
+.bg-card-movil{
+    background: rgb(234,234,238);
+background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+
+}
+.card-movil{
+    display: block;
+    text-align: center;
+    padding: 24px;
+}
+.cards-pc{
+    height: 135px;
+    width: 220px;
+    margin:10px;
+    border-radius: 30px;
+    color: #636161;
+
+}
+.btn-request{
+    background-color: #d9ed02;
+    color: #040560;
+    margin: 20px;
+}
+.info-card{
+    margin:10px;
+}
+
+.img-card{
+    width: 50px;
+    height: 50px;
+}
+@media (max-width: 500px) and (min-width: 320px) {
+    .cards-pc{
+        font-size: 12px;
+        height: 100px;
+        width: 140px;
+        margin:0px;
+    }
+    .info-card{
+        line-height: 13px;
+    }
+    .img-card{
+    width: 30px;
+    height: 30px;
+}
+
+}
+
+</style>
+<div class=" bg-card-movil">
+    <div class="blue type1 center p-4">
+        <h1 >Requisitos para solicitar un credito</h1>
+    </div> 
+    <div class="card-movil p-4 type2">
+        <div class="row">
+            <div class="col-12 ">
+                <div class= "row">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/ciudadano-colombiano.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Ser ciudadano Colombiano</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/mayor-edad.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Edad entre 18 y <br> 63 años</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/titular-cuenta.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>Ser titular de una cuenta bancaria</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/correo-electronico.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Correo electronico personal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class= "row">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/celular.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Tener número de celular</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/ingresos.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Ingresos mayores a 1 SMLV</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/info-correcta.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Suministrar la información correcta <br> y veraz</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/referencia-personal.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> 1 referencia familiar  <br>
+                                            1 referencia personal </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class= "row">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/historial.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>Tener historial crediticio </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/tratamiento-data.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p> Administración de datos personales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/data-personal.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>Política y tratamiento de datos personales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                        <div class="card cards-pc">
+                            <div class="info-card">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-card" src="./assets/img/Terminos-condiciones.png" alt="Logo Navbar">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>términos y condiciones  de uso</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>  
+        <div class="space-button">
+            <button type="button" class="btn btn-primary btn-request"> <b> Solicita tu prestamo </b></button>
+        </div>
+    </div>
+</div>
+ 
+<style>
+    .bg-questions{
+    padding: 24px;
+    background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+    }
+    .fondo-pregunta{
+
+        background-color: #e0e0e6;
+
+    }
+    .fondo-respuesta{
+        background-color: #d0d0d4
+    }
+    
+
+</style>
+<div class="bg-questions">
+    <div class="questions">
+        <div class="accordion style-accordion" id="accordionExample">
+            <div class="accordion-item style-accordion">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button fondo-pregunta" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <b>¿Cómo puedes modificar tus datos personales?</b>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body fondo-respuesta">
+                        Debes enviarnos un correo electrónico a contacto@sepresta.co, o ingresa directamente a tu perfil, al final de la página podrá escribirnos directamente indicando 
+                        la información que deseas modificar. No olvides precisarnos tu número de cédula, y la información de cada campo a modificar. Recuerda en actualizar tus datos 
+                        cada vez que haya una novedad en tu situación (cambio teléfono, dirección, trabajo, etc).              
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item style-accordion">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed fondo-pregunta" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <b> ¿En cuánto tiempo puedes obtener respuesta?</b>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body fondo-respuesta">
+                        En menos de 24 horas* tendrás respuesta sobre tu solicitud de crédito. El tiempo que tarda en estar disponible el dinero en tu cuenta dependerá de tu banco. 
+                        *Las 24 horas corresponden para días hábiles.                
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item style-accordion">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed fondo-pregunta" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                       <b> ¿Cómo puedes contactarnos?</b>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body fondo-respuesta">
+                        Nuestros medios de atención son: Línea whatsapp +57 312 687 0374, a través del correo electrónico contacto@sepresta.co o el chat que se encuentra en nuestra página.                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+    <style>
+    .pensamos{
+        text-align: center;
+        color: #0B0C63;
+        font-size: 30px;
+    }
+    .msn{
+        font-size: 25px
+    }
+    .pse{
+        height: 70px;
+        width: auto;
+    }
+
+    .bg-informacion{
+        padding: 24px;
+        height: auto;
+        background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+        width: 100%;
+        display: block;
+        text-align: center; 
+        line-height: 25px;
+        
+    }
+    .accordion-button:not(.collapsed) {
+        color: #0B0C63;
+        background-color: var(--bs-accordion-active-bg);
+        box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);
+    }
+    .ventajas{
+        text-align: initial;
+        font-size: 14px;
+    }
+    .pagos{
+        margin: 48px;
+    }
+
+    
+</style>
+<div class="bg-informacion">
+    <div class="info">
+        <b class="pensamos type1"> ¡Pensamos en tí!</b>
+       <p class="type2 blue msn"> 
+           Por eso te queremos <br>
+           ofrecer los <b class="type1 blue msn "> mejores <br>
+           beneficos</b>
+        </p>    
+    </div>
+    <div class="ventajas blue type2">
+        <li>Mejora tu score crediticio.</li>
+        <li>Avalado por entes legales.</li>
+        <li>Estudios crediticios flexibles.</li>
+        <li>Evitas filas y desplazamientos.</li>
+        <li>Obten respuesta inmediata</li>
+        <li>Resultados positivos en centrales de riesgo.</li>
+    </div>
+    <div class="pagos">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner pse">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="./assets/img/pse.png" class="" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./assets/img/davivienda.png" class="" alt="...">
+                </div>
+                <div class="carousel-item bancolombia">
+                    <img src="./assets/img/bancolombia.png" class="" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+
+
+
+
+
+<footer class="bg-footer">
+    
+    <div class="row container">
+        <div class="col-11 col-md-6 col-lg-4">
+            <div class="d-flex justify-content-center">
+                <img class="pt-4 " src="./assets/img/seprestalogoblanco.png" alt="" width="200">
+            </div>
+            <br>
+            <p class="m-4">Somos una empresa que ofrece solución a tus inconvenientes financieros, con nosotros
+                puedes obtener créditos de manera rápida fácil y segura. 100% digital.</p>
+        </div>
+        <div class="col-11 col-md-6 col-lg-4 footer-links">
+            <br>
+            <h5 class="d-flex justify-content-center">ENLACES ÚTILES</h5>
+            <ul class="list-group list-group-flush bg-footer">
+                <li class="list-group-item"><a class="bg-footer" href="https://www.sic.gov.co/" rel = "stylesheet">SIC</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="./sitemap/requisitos-de-credito.html">Requisitos crédito</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="">Métodos de pago</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="">Terminos y condiciones</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="">Aviso de privacidad</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="">Política de tratamiento de datos</a>
+                </li>
+                <li class="list-group-item"><a class="bg-footer" href="">Acuerdo para administración de
+                        datos</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="">Política PQRS</a></li>
+                <li class="list-group-item"><a class="bg-footer" href="">Política Ser Mujer</a></li>
+            </ul>
+        </div>
+        
+        <div class="col-11 col-md-8 col-lg-4">
+            <br>
+            <h5 class="d-flex justify-content-center">CONTÁCTANOS</h5>
+            <p>
+                Operamos en todo Colombia <br>
+                Cel/Whatsapp: +57 312 687 0374 <br>
+                Dirección:carrera n9 n 18-12 oficina 402 Pereira <br>
+                Correo: contacto@sepresta.co
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-facebook" viewBox="0 0 16 16">
+                <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-instagram" viewBox="0 0 16 16">
+                <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+            </svg>
+        </div>
+    </div>
+
+</footer>
+
+</html>
