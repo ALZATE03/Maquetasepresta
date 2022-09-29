@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,14 +13,13 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <style>
 
-    </style>
-<link href ="./css/app.css" rel="stylesheet">
+    <link href ="./css/app.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+    <script src="js/calculadora.js"></script>
 </head>
 
 <nav class="navbar navbar-expand-lg bg-light">
@@ -32,30 +31,30 @@
         
         <div class="d-flex d-end">
             
-        <div class="collapse navbar-collapse " id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item mt-1">
-                    <a class="navbar-brand nav-font pr-2" href="/">Inicio</a>
-                </li>
+            <div class="collapse navbar-collapse " id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mt-1">
+                        <a class="navbar-brand nav-font pr-2" href="/">Inicio</a>
+                    </li>
                 
-                <li class="nav-item mt-1">
-    <a class="navbar-brand nav-font pr-2" href="#">Preguntas Frecuentes</a>
-</li>
-<li class="nav-item mt-1">
-    <a class="navbar-brand nav-font pr-4" href="#">Requisitos crédito</a>
-</li>
-<li class="nav-item mt-1">
-    <a class="navbar-brand nav-font pl-4" href="#">Contacto</a>
-</li>
-<li class="nav-item mt-1">
-    <a class="navbar-brand buttonlogin p-2" href="/login">Iniciar sesión</a>
-</li>
+                    <li class="nav-item mt-1">
+                        <a class="navbar-brand nav-font pr-2" href="#">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item mt-1">
+                        <a class="navbar-brand nav-font pr-4" href="#">Requisitos crédito</a>
+                    </li>
+                    <li class="nav-item mt-1">
+                        <a class="navbar-brand nav-font pl-4" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item mt-1">
+                        <a class="navbar-brand buttonlogin p-2" href="/login">Iniciar sesión</a>
+                    </li>
                 
-            </ul>
-        </div>
+                </ul>
+         </div>
         
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,7 +63,7 @@
 
 <body>
     
-    <div class="bg-sepresta position-calculator ">
+<div class="bg-sepresta position-calculator ">
         <div class="card col-12 col-md-8 col-lg-4 rounded p-4 m-md-4 bg-calculator">  
     <div class="card container bg2-calculator border-calculator">
         <div class="row">
@@ -169,226 +168,7 @@
     <button class="container btn  mb-2 type1 color-botton-home" onclick="save_credit(get_credit_value(),get_days_credit_value())"><h5> Solicita tu prestamo</h5></button>
 </div>
 
-
-<style>
-@font-face {
-    font-family: "Typefont1";
-    src: url("./assets/font/arial-rounded-mt-bold.ttf");
-}
-@font-face {
-    font-family: "Typefont2";
-    src: url("./assets/font/myriad-pro-8.otf");
-}
-.type1{
-    font-family: 'Typefont1';
-}
-.type2{
-    font-family: 'Typefont2';
-}
-
-.blue{
-    color:#040560;
-}
-
-     .bg-calculator{
-        
-    background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
-   } 
-
-   .border-calculator{
-    border: 0px none #1C6EA4;
-    border-radius: 40px;
-    line-height: 15px;
-   }
-   .tittle-calculator{
-       margin: -6px;
-   }
-   .subtittle-calculator{
-    margin: 0px 30px 0px 30px;
-
-   }
-   .space-tittle{
-       margin: 15px;
-   }
-   .center{
-       text-align: center;
-   }
-   .space-total{
-       margin: 0px
-   }
-   .concept-text{
-
-    font-size: 65%
-   }
-
-   .color-botton-home{
-       background-color: #d9ed02;
-       color: #040560
-
-   }
-</style>
-
-<script>
-    function init_values(){
-        let days = 5
-        let credit = 100000
-        
-        if(
-            localStorage.getItem('prestamo') &&
-            localStorage.getItem('dias')
-        ){
-            credit =parseInt(localStorage.getItem('prestamo'))
-            days = parseInt(localStorage.getItem('dias'))
-        }
-        let interes = parseInt(credit * (0.01878 / 30) * days)
-        let seguro = parseInt((credit*24)/10000)
-        let gestion = 60600
-        let descuento = 0
-        let descuento_mujer = 0 
-        console.log(interes)
-        let total_prestamo = parseInt(credit + interes + seguro + gestion -descuento)
-
-
-        let valor_solicitado = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(credit.toFixed(0));
-        let costo_total_prestamo = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(total_prestamo.toFixed(0));
-        let valor_interes = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(interes.toFixed(0));
-        let valor_seguro = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(seguro.toFixed(0));
-        let valor_gestion = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(gestion.toFixed(0));
-        let costo_descuento_mujer = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(descuento_mujer.toFixed(0));
-        
-
-
-
-        document.getElementById('credit_value').innerHTML = valor_solicitado
-        document.getElementById('credit_days').innerHTML = days
-        document.getElementById('action_credit_value').value = valor_solicitado
-        document.getElementById('action_credit_days').value = days
-        document.getElementById('interes').innerHTML = valor_interes
-        document.getElementById('seguro').innerHTML = valor_seguro
-        document.getElementById('gestion_tecnologica').innerHTML = valor_gestion
-        document.getElementById('total_credit').innerHTML = costo_total_prestamo
-        document.getElementById('descuento_mujer').innerHTML = costo_descuento_mujer
-
-    }
-    init_values()
-    function save_credit(prestamo,dias){
-        localStorage.setItem('prestamo',prestamo);
-        localStorage.setItem('dias',dias);
-        location.href ="/dashboard";
-    }
-    function change_credit() {
-        prestamo = parseInt(get_credit_value())
-        days = parseInt(get_days_credit_value())
-        
-        interes = parseInt(prestamo * (0.01878 / 30) * get_days_credit_value())
-        seguro = parseInt((prestamo*24)/10000)
-        gestion = 60600
-        descuento = 0
-        descuento_mujer = 0    
-
-        if(flexSwitchCheckChecked.checked){
-            descuento_mujer = 6060
-        }else{
-            descuento_mujer = 0
-        }
-        
-        if(get_descuento_mujer()){
-            descuento=6060
-        }
-        console.log(get_descuento_mujer())
-        total_prestamo = parseInt(prestamo + interes + seguro + gestion -descuento)
-        console.log(total_prestamo)
-        
-
-        let valor_solicitado = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(prestamo.toFixed(0));
-        let costo_total_prestamo = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(total_prestamo.toFixed(0));
-        let valor_interes = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(interes.toFixed(0));
-        let valor_seguro = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(seguro.toFixed(0));
-        let valor_gestion = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(gestion.toFixed(0));
-        let costo_descuento_mujer = new Intl.NumberFormat('es-CO', { maximumSignificantDigits: 8,style: 'currency', currency: 'COP' }).format(descuento_mujer.toFixed(0));
-        
-        document.getElementById('credit_value').innerHTML = valor_solicitado
-        document.getElementById('prestamo').innerHTML = valor_solicitado
-        document.getElementById('credit_days').innerHTML = get_days_credit_value()
-        document.getElementById('interes').innerHTML = valor_interes
-        document.getElementById('seguro').innerHTML = valor_seguro
-        document.getElementById('gestion_tecnologica').innerHTML = valor_gestion
-        document.getElementById('total_credit').innerHTML = costo_total_prestamo
-        document.getElementById('descuento_mujer').innerHTML = costo_descuento_mujer
-
-        // 
-       
-
-
-    }
-    // change_credit(1)
-
-
-    function get_credit_value() {
-            return document.getElementById('action_credit_value').value
-    }
-
-    function get_days_credit_value() {
-            return document.getElementById('action_credit_days').value
-    }
-
-    function get_descuento_mujer(){
-    return document.getElementById('flexSwitchCheckChecked').checked
-    }
-</script>
-
-    </div>
-
-    <style>
-.bg-card-movil{
-    background: rgb(234,234,238);
-background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
-
-}
-.card-movil{
-    display: block;
-    text-align: center;
-    padding: 24px;
-}
-.cards-pc{
-    height: 135px;
-    width: 220px;
-    margin:10px;
-    border-radius: 30px;
-    color: #636161;
-
-}
-.btn-request{
-    background-color: #d9ed02;
-    color: #040560;
-    margin: 20px;
-}
-.info-card{
-    margin:10px;
-}
-
-.img-card{
-    width: 50px;
-    height: 50px;
-}
-@media (max-width: 500px) and (min-width: 320px) {
-    .cards-pc{
-        font-size: 12px;
-        height: 100px;
-        width: 140px;
-        margin:0px;
-    }
-    .info-card{
-        line-height: 13px;
-    }
-    .img-card{
-    width: 30px;
-    height: 30px;
-}
-
-}
-
-</style>
+</div>
 <div class=" bg-card-movil">
     <div class="blue type1 center p-4">
         <h1 >Requisitos para solicitar un credito</h1>
@@ -397,7 +177,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
         <div class="row">
             <div class="col-12 ">
                 <div class= "row">
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -413,7 +193,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -429,7 +209,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -445,7 +225,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -463,7 +243,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                     </div>
                 </div>
                 <div class= "row">
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -479,7 +259,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -495,7 +275,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -511,7 +291,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -530,7 +310,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                     </div>
                 </div>
                 <div class= "row">
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -546,7 +326,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -562,7 +342,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -578,7 +358,7 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-2 center1">
                         <div class="card cards-pc">
                             <div class="info-card">
                                 <div class="row">
@@ -603,22 +383,6 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
     </div>
 </div>
  
-<style>
-    .bg-questions{
-    padding: 24px;
-    background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
-    }
-    .fondo-pregunta{
-
-        background-color: #e0e0e6;
-
-    }
-    .fondo-respuesta{
-        background-color: #d0d0d4
-    }
-    
-
-</style>
 <div class="bg-questions">
     <div class="questions">
         <div class="accordion style-accordion" id="accordionExample">
@@ -663,47 +427,6 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
         </div>
     </div> 
 </div>
-
-
-    <style>
-    .pensamos{
-        text-align: center;
-        color: #0B0C63;
-        font-size: 30px;
-    }
-    .msn{
-        font-size: 25px
-    }
-    .pse{
-        height: 70px;
-        width: auto;
-    }
-
-    .bg-informacion{
-        padding: 24px;
-        height: auto;
-        background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
-        width: 100%;
-        display: block;
-        text-align: center; 
-        line-height: 25px;
-        
-    }
-    .accordion-button:not(.collapsed) {
-        color: #0B0C63;
-        background-color: var(--bs-accordion-active-bg);
-        box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);
-    }
-    .ventajas{
-        text-align: initial;
-        font-size: 14px;
-    }
-    .pagos{
-        margin: 48px;
-    }
-
-    
-</style>
 <div class="bg-informacion">
     <div class="info">
         <b class="pensamos type1"> ¡Pensamos en tí!</b>
@@ -772,8 +495,8 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
             <ul class="list-group list-group-flush bg-footer">
                 <li class="list-group-item"><a class="bg-footer" href="https://www.sic.gov.co/" rel = "stylesheet">SIC</a></li>
                 <li class="list-group-item"><a class="bg-footer" href="./sitemap/requisitos-de-credito.html">Requisitos crédito</a></li>
-                <li class="list-group-item"><a class="bg-footer" href="">Métodos de pago</a></li>
-                <li class="list-group-item"><a class="bg-footer" href="">Terminos y condiciones</a></li>
+<!--                 <li class="list-group-item"><a class="bg-footer" href="./sitemap/metodo-pago.html">Métodos de pago</a></li>
+ -->            <li class="list-group-item"><a class="bg-footer" href="./sitemap/terminos-condiciones.html">Terminos y condiciones</a></li>
                 <li class="list-group-item"><a class="bg-footer" href="">Aviso de privacidad</a></li>
                 <li class="list-group-item"><a class="bg-footer" href="">Política de tratamiento de datos</a>
                 </li>

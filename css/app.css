@@ -17,7 +17,7 @@
     color:#040560;
 }
 
-     .bg-calculator{
+.bg-calculator{
         
     background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
    } 
@@ -232,13 +232,136 @@ background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.
     }
     .info-card{
         line-height: 13px;
+        
     }
     .img-card{
     width: 30px;
     height: 30px;
+    
 }
 
+
 }
 
+.card-movil2{
+    display: block;
+    text-align: center;
+    padding: 24px;
+}
+.cards-pc2{
+    height: 135px;
+    width: 220px;
+    margin:10px;
+    border-radius: 30px;
+    color: #636161;
 
+}
+.info-card2{
+    margin:10px;
+    
+}
+.center1{
+    text-align: -webkit-center;
+}
+.img-card2{
+    width: 50px;
+    height: 50px;
+}
 
+/* @media (max-width: 500px) and (min-width: 320px){
+    .cards-pc2{
+        height: 135px;
+        width: 220px;
+        margin:10px;
+        border-radius: 30px;
+        color: #636161;
+        border-color:#430379;
+    
+    }
+} */
+@media screen and (max-width: 990px) {
+    .cards-pc2{
+        height: 120px;
+        width: 80%;
+        
+    }
+
+    .info-card2{
+        font-size: 15px;
+    }
+    .img-card2{
+        width: 40px;
+        height: 40px;
+    }
+    
+  }
+  .bg-questions{
+    padding: 24px;
+    background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+    }
+    .fondo-pregunta{
+
+        background-color: #e0e0e6;
+
+    }
+    .fondo-respuesta{
+        background-color: #d0d0d4
+    }
+    .pensamos{
+        text-align: center;
+        color: #0B0C63;
+        font-size: 30px;
+    }
+    .msn{
+        font-size: 25px
+    }
+    .pse{
+        height: 70px;
+        width: auto;
+    }
+
+    .bg-informacion{
+        padding: 24px;
+        height: auto;
+        background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+        width: 100%;
+        display: block;
+        text-align: center; 
+        line-height: 25px;
+        
+    }
+    .accordion-button:not(.collapsed) {
+        color: #0B0C63;
+        background-color: var(--bs-accordion-active-bg);
+        box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);
+    }
+    .ventajas{
+        text-align: initial;
+        font-size: 14px;
+    }
+    .pagos{
+        margin: 48px;
+    }
+
+    .bg-site{
+        padding: 24px;
+        height: auto;
+        background: linear-gradient(97deg, rgba(234,234,238,0.8) 0%, rgba(255,255,255,0.7) 100%);
+        width: 100%;
+        display: block;
+        text-align: center; 
+        line-height: 25px;
+
+    }
+    .tittle-site{
+        font-size: 14px;
+    }
+    .subtittle-site{
+        font-size: 13px;
+    }
+    .text-site {
+        font-size: 12px;
+    }
+    .justify{
+        text-align: justify;
+    }
